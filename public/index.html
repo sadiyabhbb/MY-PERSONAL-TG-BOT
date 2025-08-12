@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Telegram Bot Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0; padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #0052cc;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      margin-bottom: 0.2rem;
+    }
+    section {
+      background: white;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    ul {
+      list-style: inside disc;
+      padding-left: 0;
+    }
+    .status-online {
+      color: green;
+      font-weight: bold;
+    }
+    .status-offline {
+      color: red;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      padding: 1rem 0;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>আমার Telegram Bot ড্যাশবোর্ড</h1>
+    <p>আপনার বটের বর্তমান স্ট্যাটাস ও তথ্য দেখতে পারেন</p>
+  </header>
+  <main>
+    <section id="status-section">
+      <h2>বট স্ট্যাটাস</h2>
+      <p>স্ট্যাটাস: <span class="status-online">অনলাইন</span></p>
+      <p>শেষ আপডেট: <span id="last-updated">--</span></p>
+    </section>
 
+    <section id="commands-section">
+      <h2>উপলব্ধ কমান্ড সমূহ</h2>
+      <ul>
+        <li><code>/help</code> - কমান্ড তালিকা দেখান</li>
+        <li><code>/gpt</code> - AI চ্যাট চালান</li>
+        <li><code>/run</code> - কাস্টম কমান্ড চালান</li>
+      </ul>
+    </section>
+
+    <section id="info-section">
+      <h2>বট সম্পর্কে তথ্য</h2>
+      <p>বটটি Node.js এবং Telegraf লাইব্রেরি ব্যবহার করে তৈরি। OpenAI GPT API ইন্টিগ্রেশন রয়েছে।</p>
+      <p>ডেভেলপার: আপনার নাম</p>
+      <p><a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub রিপোজিটরি</a></p>
+    </section>
+  </main>
+  <footer>
+    &copy; ২০২৫ আমার বট | সব অধিকার সংরক্ষিত
+  </footer>
+
+  <script>
+    // ডেমো জন্য, শেষ আপডেট সময় দেখানো (বর্তমান সময়)
+    const lastUpdatedElem = document.getElementById('last-updated');
+    function updateTime() {
+      const now = new Date();
+      lastUpdatedElem.textContent = now.toLocaleString('bn-BD', {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+              </html>
